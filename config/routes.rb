@@ -32,6 +32,10 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :chats do
+    resources :msgs
+  end
+  
   # get 'sessions/new'
   # get 'users/new'
   # get 'signup' => 'users#new'

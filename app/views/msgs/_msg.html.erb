@@ -1,0 +1,11 @@
+<li class="<%= self_or_other(msg) %>">
+  <div class="avatar">
+    <img src="http://placehold.it/50x50" />
+  </div>
+  <div class="chatboxmsgcontent">
+    <p><%= msg.body %></p>
+    <time datetime="<%= msg.created_at %>" title="<%= msg.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+      <%= msg_interlocutor(msg).name %> • <%= msg.created_at.strftime("%H:%M %p") %>
+    </time>
+  </div>
+</li>
