@@ -1,8 +1,11 @@
 <li>
-  <b>Position: <%= user.position %><br></b>
-  Created Resolutions: <%= user.created_resolutions.count %><br>
-  Sponsored Resolutions: <%= user.sponsored_resolutions.count %><br>
-  Personal Directives Total: <%= user.personal_directives.count %><br>
-  Personal Directives Quality: <%= user.personal_directives.average(:quality) %>
-
+  <tr>
+  <td><b>Position: <%= user.position %><br></b></td> 
+  <td><%= user.name %></td>
+  <td><%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-chat",
+                    "data-sid" => current_user.id, "data-rip" => user.id %><br></td>
+  <td>Created Resolutions: <%= user.created_resolutions.count %><br></td>
+  <td>Sponsored Resolutions: <%= user.sponsored_resolutions.count %><br></td>
+  <td>Personal Directives Total: <%= user.personal_directives.count %><br></td>
+  <td>Personal Directives Quality: <%= user.personal_directives.average(:quality) %></td>
 </li>

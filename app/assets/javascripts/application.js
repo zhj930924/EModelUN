@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
+//= require chat
 //= require turbolinks
 //= require bootstrap
 //= require_tree .

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224210552) do
+ActiveRecord::Schema.define(version: 20160413130446) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "chats", ["recipient_id"], name: "index_chats_on_recipient_id"
+  add_index "chats", ["sender_id"], name: "index_chats_on_sender_id"
 
   create_table "comment_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -121,6 +131,17 @@ ActiveRecord::Schema.define(version: 20160224210552) do
   end
 
   add_index "manages", ["delegate_id", "crisis_id"], name: "index_manages_on_delegate_id_and_crisis_id", unique: true
+
+  create_table "msgs", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "chat_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "msgs", ["chat_id"], name: "index_msgs_on_chat_id"
+  add_index "msgs", ["user_id"], name: "index_msgs_on_user_id"
 
   create_table "tags", force: :cascade do |t|
     t.string "tag"

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
           :timeoutable
+          
+    has_many :chats, :foreign_key => :sender_id
     
     has_and_belongs_to_many :directives
     attr_accessor :remember_token
