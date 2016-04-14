@@ -81,7 +81,7 @@ Rails.application.routes.draw do
   resources :resolution_sponsorships, only: [:create, :destroy]
   resources :resolution_signings, only: [:create, :destroy]
   resources :resolution_requests, only: [:create, :destroy]
-
+  post '/pusher/auth'    => 'pusher#auth'
   #root to: "static_pages#home"
   
 
